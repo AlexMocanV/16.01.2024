@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int nrmaxim(int n)
+{
+    int maxi=-1,c=0,c1=0,cif=0;
+    c1=n;
+    int nr=0;
+    while(c1>0)
+    {
+        nr++;
+        c1/=10;
+    }
+    cif=nr;
+    int nou=n;
+    int cf;
+    while(nr>0)
+    {
+        int imp=pow(10,cif-1);
+        cf=nou/imp;
+        nou=nou%imp;
+        nou=nou*10+cf;
+        //cout<<nou<<"\n";
+        maxi=max(maxi,nou);
+        nr--;
+    }
+    return maxi;    
+}
